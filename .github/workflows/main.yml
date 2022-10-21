@@ -60,7 +60,7 @@ jobs:
           # wait-on: 'http://localhost:3000'
           # wait-on-timeout: 120
           browser: chrome
-          config-file: additional.config.jsconfig fic
+          config-file: additional.config.js
           # record: true
           # parallel: true
           # group: 'UI - Chrome'
