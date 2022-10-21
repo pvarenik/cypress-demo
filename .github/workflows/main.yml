@@ -62,7 +62,6 @@ jobs:
           # parallel: true
           # group: 'UI - Chrome'
           # spec: cypress/e2e/1-getting-started/todo.cy.js
-          viewport: macbook-15
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # Recommended: pass the GitHub token lets this action correctly
@@ -76,11 +75,11 @@ jobs:
       #     if-no-files-found: warn
       #     path: cypress/screenshots
 
-      # - name: Download the videos folders
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: videos
-      #     if-no-files-found: warn
+      - name: Download the videos folders
+        uses: actions/download-artifact@v2
+        with:
+          name: videos
+          path: cypress/videos
 
       - name: Get Allure history
         uses: actions/checkout@v2
