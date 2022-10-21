@@ -76,18 +76,6 @@ jobs:
       #     name: videos
       #     if-no-files-found: warn
 
-      - name: Publish Allure Report
-        uses: actions/download-artifact@v2
-        with:
-          name: videos
-          path: cypress/videos
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: allure-results
-          path: allure-results
-
       - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
@@ -109,7 +97,6 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history/allure-history
-
         # env:
         #   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
         #   # Recommended: pass the GitHub token lets this action correctly
