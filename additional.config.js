@@ -1,10 +1,13 @@
 const { defineConfig } = require("cypress");
-const defaultConfig = require("./cypress.config.js");
+const baseConfig = require("./cypress.config.js");
+
+const e2e = {
+  projectId: "teeeest",  
+}
 
 module.exports = defineConfig({
-  //extends: "./test.js",
   e2e: {
-    projectId: "guusto",  
-    // baseUrl: defaultConfig.e2e.baseUrl
-  },  
-});
+    ...e2e,           // values from above
+    ...baseConfig     // add or overwrite from imported file
+  }
+})
