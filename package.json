@@ -5,7 +5,8 @@
   "scripts": {
     "cy:run": "cypress run",
     "cy:happypath": "cypress run --spec 'cypress/e2e/1-getting-started/todo.cy.js' --config-file additional.config.js",
-    "cy:happyPathAllure": "cypress run --spec 'cypress/e2e/1-getting-started/todo.cy.js' --config-file additional.config.js  --reporter mocha-allure-reporter"
+    "cy:happyPathAllure": "cypress run --spec 'cypress/e2e/1-getting-started/todo.cy.js' --config-file additional.config.js  --reporter mocha-allure-reporter",
+    "cy:runAllure": "cypress run --config-file additional.config.js  --reporter mocha-allure-reporter"
   },
   "devDependencies": {
     "allure-commandline": "^2.18.1",

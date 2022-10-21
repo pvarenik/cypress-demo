@@ -1,4 +1,4 @@
-name: Cypress Tests with Install Job and UI Chrome Job x 5
+name: Cypress Tests
 
 on:
   push:
@@ -49,7 +49,7 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           # build: npm run cy:happypath
-          command: npm run cy:happyPathAllure
+          command: npm run cy:runAllure
           # we have already installed all dependencies above
           # install: false
           # start: npm run cy:happypath
@@ -62,6 +62,11 @@ jobs:
           # group: 'UI - Chrome'
           # spec: cypress/e2e/1-getting-started/todo.cy.js
           viewport: macbook-15
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # Recommended: pass the GitHub token lets this action correctly
+          # determine the unique run id necessary to re-run the checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Download the screenshots folders
       #   uses: actions/download-artifact@v2
@@ -97,8 +102,3 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history/allure-history
-        # env:
-        #   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        #   # Recommended: pass the GitHub token lets this action correctly
-        #   # determine the unique run id necessary to re-run the checks
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
