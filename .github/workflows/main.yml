@@ -52,19 +52,25 @@ jobs:
           # group: 'UI - Chrome'
           spec: cypress/e2e/1-getting-started/todo.cy.js
 
-      - name: Download the screenshots folders
-        uses: actions/download-artifact@v2
-        with:
-          name: screenshots
-          if-no-files-found: warn
-          path: cypress/screenshots
+      # - name: Download the screenshots folders
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: screenshots
+      #     if-no-files-found: warn
+      #     path: cypress/screenshots
 
-      - name: Download the videos folders
-        uses: actions/download-artifact@v2
+      # - name: Download the videos folders
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: videos
+      #     if-no-files-found: warn
+      #     path: cypress/videos
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
         with:
-          name: videos
-          if-no-files-found: warn
-          path: cypress/videos
+          name: build
+          path: .
 
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
