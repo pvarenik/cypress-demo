@@ -6,7 +6,8 @@ module.exports = defineConfig({
     e2e: {
         setupNodeEvents(on, config) {
       },
-      viewport: macbook - 15
+      viewportWidth: 1000,
+      viewportHeight: 660
     },
     env: {
       allure: true,
