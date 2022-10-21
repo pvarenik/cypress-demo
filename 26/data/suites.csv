@@ -1,7 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Fri Oct 21 22:25:21 GMT 2022","Fri Oct 21 22:25:22 GMT 2022","673","","example to-do app with a checked task","","example to-do app with a checked task","can delete all completed tasks","can delete all completed tasks",""
-"failed","Fri Oct 21 22:25:14 GMT 2022","Fri Oct 21 22:25:19 GMT 2022","5434","","example to-do app","","example to-do app","can add new todo items","can add new todo items",""
-"passed","Fri Oct 21 22:25:19 GMT 2022","Fri Oct 21 22:25:20 GMT 2022","422","","example to-do app","","example to-do app","can check off an item as completed","can check off an item as completed",""
-"passed","Fri Oct 21 22:25:20 GMT 2022","Fri Oct 21 22:25:21 GMT 2022","519","","example to-do app with a checked task","","example to-do app with a checked task","can filter for completed tasks","can filter for completed tasks",""
-"passed","Fri Oct 21 22:25:20 GMT 2022","Fri Oct 21 22:25:20 GMT 2022","537","","example to-do app with a checked task","","example to-do app with a checked task","can filter for uncompleted tasks","can filter for uncompleted tasks",""
-"passed","Fri Oct 21 22:25:13 GMT 2022","Fri Oct 21 22:25:14 GMT 2022","1128","","example to-do app","","example to-do app","displays two todo items by default","displays two todo items by default",""
