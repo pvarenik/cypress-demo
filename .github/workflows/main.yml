@@ -85,11 +85,18 @@ jobs:
       #     if-no-files-found: warn
       #     path: cypress/screenshots
 
-      - name: Download the videos folders
-        uses: actions/download-artifact@v2
+      # - name: Download the videos folders
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: videos
+      #     path: cypress/videos
+      
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
         with:
-          name: videos
-          path: cypress/videos
+          name: build
+          if-no-files-found: error
+          path: .
 
       - name: Get Allure history
         uses: actions/checkout@v2
