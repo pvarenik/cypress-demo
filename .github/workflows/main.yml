@@ -11,12 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     container: cypress/browsers:node16.17.0-chrome106
     steps:
-      - name: Install dependencies
-        uses: cypress-io/github-action@v4
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          # just perform install
-          runTests: false
-
+          node-version: '14.x'
+      - name: Install dependencies
+        run: npm ci
+      - name: Install cypress
+        run: npx cypress install --with-deps
       # - uses: actions/checkout@master    
       # - name: Checkout
       #   uses: actions/checkout@v2
