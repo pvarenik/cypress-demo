@@ -8,6 +8,7 @@ module.exports = defineConfig({
         }
     },
     env: {
+      allure: true,
       allureAddVideoOnPass: true
     }
   }
