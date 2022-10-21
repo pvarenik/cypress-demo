@@ -60,11 +60,11 @@ jobs:
           # wait-on: 'http://localhost:3000'
           # wait-on-timeout: 120
           browser: chrome
-          config-file: cypress/e2e/1-getting-started/todo.cy.js
+          config-file: additional.config.jsconfig fic
           # record: true
           # parallel: true
           # group: 'UI - Chrome'
-          # spec: cypress/tests/ui/*
+          spec: cypress/e2e/1-getting-started/todo.cy.js
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # Recommended: pass the GitHub token lets this action correctly
