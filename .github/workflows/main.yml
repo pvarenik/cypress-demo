@@ -7,15 +7,23 @@ on:
     branches: [ master ]
 jobs:
   install:
+  
     runs-on: ubuntu-latest
     container: cypress/browsers:node16.17.0-chrome106
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-      - uses: actions/setup-node@v2
+      - name: Install dependencies
+        uses: cypress-io/github-action@v4
         with:
-          node-version: '16.x'
+          # just perform install
+          runTests: false
+
+      # - uses: actions/checkout@master    
+      # - name: Checkout
+      #   uses: actions/checkout@v2
+      
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '16.x'
           
       # - name: Save build folder
       #   uses: actions/upload-artifact@v2
@@ -32,7 +40,7 @@ jobs:
       fail-fast: false
       matrix:
         # run copies of the current job in parallel
-        containers: [1, 2]
+        containers: [1]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -40,17 +48,19 @@ jobs:
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v4
         with:
+          # build: npm run cy:happypath
+          command: npm run cy:happypath
           # we have already installed all dependencies above
           # install: false
           # start: npm run cy:happypath
           # wait-on: 'http://localhost:3000'
           # wait-on-timeout: 120
           browser: chrome
-          config-file: additional.config.js
+          # config-file: additional.config.js
           # record: true
           # parallel: true
           # group: 'UI - Chrome'
-          spec: cypress/e2e/1-getting-started/todo.cy.js
+          # spec: cypress/e2e/1-getting-started/todo.cy.js
 
       # - name: Download the screenshots folders
       #   uses: actions/download-artifact@v2
@@ -59,18 +69,18 @@ jobs:
       #     if-no-files-found: warn
       #     path: cypress/screenshots
 
-      # - name: Download the videos folders
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: videos
-      #     if-no-files-found: warn
-      #     path: cypress/videos
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
+      - name: Download the videos folders
+        uses: actions/download-artifact@v2
         with:
-          name: build
-          path: .
+          name: videos
+          if-no-files-found: warn
+          path: cypress/videos
+
+      # - name: Save build folder
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: build
+      #     path: .
 
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
