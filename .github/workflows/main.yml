@@ -22,7 +22,7 @@ jobs:
       
       - uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '16.x'
           
       - name: Save build folder
         uses: actions/upload-artifact@v2
@@ -39,7 +39,7 @@ jobs:
       fail-fast: false
       matrix:
         # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
+        containers: [1, 2]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -56,10 +56,11 @@ jobs:
         with:
           # we have already installed all dependencies above
           # install: false
-          start: npm run cy:happypath
+          # start: npm run cy:happypath
           # wait-on: 'http://localhost:3000'
           # wait-on-timeout: 120
           browser: chrome
+          config-file: cypress/e2e/1-getting-started/todo.cy.js
           # record: true
           # parallel: true
           # group: 'UI - Chrome'
