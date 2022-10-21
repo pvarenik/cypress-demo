@@ -29,7 +29,7 @@ jobs:
         with:
           name: build
           if-no-files-found: error
-          path: build
+          path: .
 
   ui-chrome-tests:
     runs-on: ubuntu-latest
@@ -47,8 +47,8 @@ jobs:
       - name: Download the build folders
         uses: actions/download-artifact@v2
         with:
-          name: build
-          path: build
+          name: screenshots
+          path: cypress/screenshots
 
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v4
