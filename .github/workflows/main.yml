@@ -49,6 +49,7 @@ jobs:
         with:
           name: screenshots
           path: cypress/screenshots
+          if-no-files-found: warn
 
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v4
