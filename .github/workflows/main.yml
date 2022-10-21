@@ -1,14 +1,23 @@
 name: Cypress Tests
 
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
   push:
     branches: [ dev ]
   pull_request:
     branches: [ master ]
 jobs:
-  install:
-  
+  install:  
     runs-on: ubuntu-latest
     container: cypress/browsers:node16.17.0-chrome106
     steps:
