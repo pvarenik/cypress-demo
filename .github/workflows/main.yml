@@ -17,8 +17,6 @@ jobs:
           node-version: '14.x'
       - name: Install dependencies
         run: npm ci
-      - name: Install cypress
-        run: npx cypress install --with-deps
       # - uses: actions/checkout@master    
       # - name: Checkout
       #   uses: actions/checkout@v2
